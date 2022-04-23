@@ -55,8 +55,8 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/appCompatTextView"
-        android:layout_width="378dp"
-        android:layout_height="555dp"
+        android:layout_width="379dp"
+        android:layout_height="557dp"
         android:layout_marginStart="@dimen/header"
         android:layout_marginTop="88dp"
         android:layout_marginEnd="@dimen/header"
