@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,130 +18,120 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtTitle"
-        android:layout_width="267dp"
+        android:layout_width="0dp"
         android:layout_height="20dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:singleLine="true"
+        android:layout_marginTop="28dp"
         android:ellipsize="end"
+        android:singleLine="true"
+        app:layout_constraintEnd_toStartOf="@+id/btnThreeDot"
         app:layout_constraintStart_toEndOf="@+id/logo"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Нетология. Университет интернет-профессий" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txtDate"
-        android:layout_width="267dp"
+        android:layout_width="0dp"
         android:layout_height="20dp"
         android:layout_marginStart="10dp"
         android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="@+id/txtTitle"
         app:layout_constraintStart_toEndOf="@+id/logo"
         app:layout_constraintTop_toBottomOf="@+id/txtTitle"
         tools:text="23.04.2022" />
 
+
     <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/button"
+        android:id="@+id/btnThreeDot"
         android:layout_width="24dp"
         android:layout_height="28dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="@dimen/header"
         android:layout_marginEnd="@dimen/header"
         android:background="@android:color/transparent"
         android:src="@drawable/ic_options_24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtTitle"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/appCompatTextView"
-        android:layout_width="379dp"
-        android:layout_height="557dp"
+        android:id="@+id/mainTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginStart="@dimen/header"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="@dimen/header"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewShare"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
         tools:text="@tools:sample/lorem/random" />
 
     <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="bottom"/>
+        app:barrierDirection="bottom" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imageViewShare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="2dp"
+        android:layout_marginStart="10dp"
         android:layout_marginBottom="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView"
+        app:layout_constraintStart_toEndOf="@+id/textViewLikeCount"
         app:srcCompat="@android:drawable/ic_menu_share" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewShareCount"
         android:layout_width="42dp"
         android:layout_height="19dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="155dp"
+        android:layout_marginStart="2dp"
         android:layout_marginBottom="42dp"
         android:text="500"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView" />
+        app:layout_constraintStart_toEndOf="@+id/imageViewShare" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textViewLikeCount"
         android:layout_width="39dp"
-        android:layout_height="20dp"
-        android:layout_marginTop="26dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
         android:layout_marginBottom="42dp"
         android:text="500"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView" />
+        app:layout_constraintStart_toEndOf="@+id/imageViewLike" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageViewerIcon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="2dp"
         android:layout_marginBottom="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView"
+        app:layout_constraintEnd_toStartOf="@+id/textViewViewerCount"
         app:srcCompat="@android:drawable/ic_menu_view" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewViewerCount"
         android:layout_width="42dp"
         android:layout_height="19dp"
-        android:layout_marginTop="26dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="43dp"
         android:text="5000"
         android:textAlignment="textEnd"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imageViewLike"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="2dp"
         android:layout_marginBottom="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView"
         app:srcCompat="@android:drawable/btn_star" />
 
 
