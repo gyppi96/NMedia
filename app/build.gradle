@@ -43,7 +43,6 @@ android {
 configurations.all {
     resolutionStrategy {
         force "androidx.core:core:1.6.0"    //This is stable version right now.
-        force 'androidx.core:core-ktx:1.6.0'
     }
 
 }
@@ -59,6 +58,8 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.0"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.3.0"
 
+
+    implementation 'androidx.core:core-ktx:1.6.0'
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
