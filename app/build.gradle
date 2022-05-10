@@ -28,6 +28,10 @@ android {
         }
     }
 
+    viewBinding {
+        enabled = true
+    }
+
 }
 
 configurations.all {
