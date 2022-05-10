@@ -9,9 +9,9 @@ name: CI
 
 on:
   push:
-    branches: [ master, main, gyppi96, mvvm ]
+    branches: [ master, main, gyppi96 ]
   pull_request:
-    branches: [ master, main, gyppi96, mvvm ]
+    branches: [ master, main, gyppi96 ]
 
 jobs:
   build:
