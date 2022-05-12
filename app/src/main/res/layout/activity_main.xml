@@ -71,7 +71,8 @@
         android:id="@+id/barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="bottom" />
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="logo, txtTitle, txtDate"/>
 
     <ImageView
         android:id="@+id/imageViewShare"
