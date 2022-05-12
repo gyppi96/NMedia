@@ -3,7 +3,7 @@ package ru.netology.nmedia.dto
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
-data class Post (
+data class Post(
     val id: Long,
     val author: String,
     val content: String,

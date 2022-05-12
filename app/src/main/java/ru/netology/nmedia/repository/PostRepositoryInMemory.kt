@@ -5,24 +5,33 @@ import androidx.lifecycle.MutableLiveData
 import ru.netology.nmedia.dto.Post
 
 class PostRepositoryInMemory : PostRepository {
+    private var nextId = 1L
     private var posts = listOf(
         Post(
-            id = 2,
+            id = nextId++,
             author = "Нетология. Университет интернет-профессий будущег",
-            content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия — помочь встать на путь роста и начать цепочку перемен → http://netolo.gy/fyb\"",
-            published = "11 мая в 19:37",
+            content = "Привет, пост знакомство",
+            published = "10 мая в 19:37",
             likesCount = 1,
             sharesCount = 2
         ),
         Post(
-            id = 1,
+            id = nextId++,
             author = "Нетология. Университет интернет-профессий будущег",
             content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия — помочь встать на путь роста и начать цепочку перемен → http://netolo.gy/fyb\"",
-            published = "12 мая в 11:36",
+            published = "11 мая в 18:36",
             likesCount = 999,
             sharesCount = 996
+        ),
+        Post(
+            id = nextId++,
+            author = "Нетология. Университет интернет-профессий будущег",
+            content = "Привет, это новая Нетология! Когда-то Нетология начиналась с интенсивов по онлайн-маркетингу. Затем появились курсы по дизайну, разработке, аналитике и управлению. Мы растём сами и помогаем расти студентам: от новичков до уверенных профессионалов. Но самое важное остаётся с нами: мы верим, что в каждом уже есть сила, которая заставляет хотеть больше, целиться выше, бежать быстрее. Наша миссия — помочь встать на путь роста и начать цепочку перемен → http://netolo.gy/fyb\"",
+            published = "12 мая в 18:36",
+            likesCount = 1600,
+            sharesCount = 1600
         )
-    )
+    ).reversed()
 
     private val data = MutableLiveData(posts)
 
@@ -46,5 +55,25 @@ class PostRepositoryInMemory : PostRepository {
         }
 
         data.value = posts
+    }
+
+    override fun remove(id: Long) {
+        posts = posts.filter { it.id != id }
+        data.value = posts
+    }
+
+    override fun save(post: Post) {
+
+        posts = if (post.id == 0L) {
+            listOf(post.copy(id = nextId++)) + posts
+        } else {
+            posts.map { if (it.id != post.id) it else it.copy(content = post.content) }
+        }
+
+        data.value = posts
+    }
+
+    override fun cancelEditing(post: Post) {
+        posts.map { if (it.id != post.id) it}
     }
 }

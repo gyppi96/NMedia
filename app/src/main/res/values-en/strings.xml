@@ -3,4 +3,11 @@
     <string name="nmedia">NMedia!</string>
 
 
+    <string name="menu_remove">Remove</string>
+    <string name="menu_edit">Edit</string>
+    <string name="post_text">Enter post text</string>
+    <string name="description_post_like">Like</string>
+    <string name="error_empty_content">Content cannot be empty</string>
+    <string name="edit_message">Edit Message</string>
+
 </resources>
