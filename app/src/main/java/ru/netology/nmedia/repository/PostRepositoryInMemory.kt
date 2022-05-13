@@ -74,6 +74,6 @@ class PostRepositoryInMemory : PostRepository {
     }
 
     override fun cancelEditing(post: Post) {
-        posts.map { if (it.id != post.id) it}
+        posts.map { if (it.id != post.id) it else it.copy(content = post.content)}
     }
 }
