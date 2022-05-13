@@ -1,6 +1,5 @@
 package ru.netology.nmedia.utils
 
-
 import android.content.Context
 import android.inputmethodservice.InputMethodService
 import android.view.View

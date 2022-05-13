@@ -10,6 +10,7 @@ import ru.netology.nmedia.R
 import ru.netology.nmedia.databinding.CardPostBinding
 import ru.netology.nmedia.dto.Post
 import ru.netology.nmedia.utils.Utils
+import java.util.zip.Inflater
 
 interface PostCallback {
     fun onLike(post: Post)
@@ -33,28 +34,29 @@ class PostsAdapter(private val postCallback: PostCallback) :
 
 }
 
-class PostViewHolder(private val binding: CardPostBinding, private val postCallback: PostCallback) : RecyclerView.ViewHolder(binding.root) {
+class PostViewHolder(
+    private val binding: CardPostBinding,
+    private val postCallback: PostCallback
+) : RecyclerView.ViewHolder(binding.root) {
     fun bind(post: Post) {
         with(binding) {
-            txtTitle.text = post.author
-            mainTextView.text = post.content
-            txtDate.text = post.published
-            textViewLikeCount.text = Utils.reductionInNumbers(post.likesCount)
-            textViewShareCount.text = Utils.reductionInNumbers(post.sharesCount)
-            imageViewLike.setImageResource(
-                if (post.likedByMe) R.drawable.ic_liked_24
-                else R.drawable.ic_like_24
-            )
+            author.text = post.author
+            content.text = post.content
+            published.text = post.published
+            like.text = Utils.reductionInNumbers(post.likesCount)
+            share.text = Utils.reductionInNumbers(post.sharesCount)
+            like.isChecked = post.likedByMe
+            viewed.text = Utils.reductionInNumbers(post.sharesCount)
 
-            imageViewLike.setOnClickListener {
+            like.setOnClickListener {
                 postCallback.onLike(post)
             }
 
-            imageViewShare.setOnClickListener {
+            share.setOnClickListener {
                 postCallback.onShare(post)
             }
 
-            btnThreeDot.setOnClickListener {
+            menu.setOnClickListener {
                 PopupMenu(it.context, it).apply {
                     inflate(R.menu.post_options)
                     setOnMenuItemClickListener { menuItem ->
