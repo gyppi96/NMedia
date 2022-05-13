@@ -3,137 +3,113 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/logo"
-        android:layout_width="70dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="@dimen/header"
-        android:layout_marginTop="@dimen/header"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher" />
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="cancel_editing, edit_notification, image_edit, edit_barrier, post_text" />
 
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txtTitle"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="28dp"
-        android:ellipsize="end"
-        android:singleLine="true"
-        app:layout_constraintEnd_toStartOf="@+id/btnThreeDot"
-        app:layout_constraintStart_toEndOf="@+id/logo"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Нетология. Университет интернет-профессий" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/txtDate"
-        android:layout_width="0dp"
-        android:layout_height="20dp"
-        android:layout_marginStart="10dp"
-        android:singleLine="true"
-        app:layout_constraintEnd_toEndOf="@+id/txtTitle"
-        app:layout_constraintStart_toEndOf="@+id/logo"
-        app:layout_constraintTop_toBottomOf="@+id/txtTitle"
-        tools:text="23.04.2022" />
-
-
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:id="@+id/btnThreeDot"
-        android:layout_width="24dp"
-        android:layout_height="28dp"
-        android:layout_marginTop="@dimen/header"
-        android:layout_marginEnd="@dimen/header"
-        android:background="@android:color/transparent"
-        android:src="@drawable/ic_options_24dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/mainTextView"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/header"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="@dimen/header"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewShare"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo"
-        tools:text="@tools:sample/lorem/random" />
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@id/edit_barrier"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/card_post" />
 
     <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier"
+        android:id="@+id/toolsTop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="logo, txtTitle, txtDate"/>
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="content,save" />
 
-    <ImageView
-        android:id="@+id/imageViewShare"
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginBottom="36dp"
+        android:background="@android:color/transparent"
+        android:hint="@string/post_text"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:maxLines="6"
+        android:padding="@dimen/common_spacing"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewLikeCount"
-        app:srcCompat="@android:drawable/ic_menu_share" />
-
-    <TextView
-        android:id="@+id/textViewShareCount"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="42dp"
-        android:text="500"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageViewShare" />
-
-    <TextView
-        android:id="@+id/textViewLikeCount"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginBottom="42dp"
-        android:text="500"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageViewLike" />
-
-    <ImageView
-        android:id="@+id/imageViewerIcon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="2dp"
-        android:layout_marginBottom="36dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textViewViewerCount"
-        app:srcCompat="@android:drawable/ic_menu_view" />
-
-    <TextView
-        android:id="@+id/textViewViewerCount"
-        android:layout_width="wrap_content"
-        android:layout_height="19dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="43dp"
-        android:text="5000"
-        android:textAlignment="textEnd"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageViewLike"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="36dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/save"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/btn_star_big_off" />
+        app:layout_constraintTop_toTopOf="@id/toolsTop" />
 
+    <ImageButton
+        android:id="@+id/save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_spacing"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/description_post_like"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/content"
+        app:srcCompat="@drawable/ic_baseline_check_circle_outline_24" />
+
+    <ImageButton
+        android:id="@+id/cancel_editing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/description_post_like"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/content"
+        app:layout_constraintTop_toTopOf="@+id/edit_notification"
+        app:srcCompat="@drawable/ic_baseline_clear_24" />
+
+    <TextView
+        android:id="@+id/edit_notification"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/edit_notification_marginStart"
+        android:layout_marginEnd="@dimen/edit_notification_marginEnd"
+        android:paddingStart="@dimen/edit_notification_paddingStart"
+        android:text="@string/edit_message"
+        android:textColor="@color/edit_notification_textColor"
+        android:padding="@dimen/edit_notification_padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list" />
+
+    <ImageView
+        android:id="@+id/image_edit"
+        android:layout_width="@dimen/image_edit_width"
+        android:layout_height="@dimen/image_edit_height"
+        app:layout_constraintBottom_toTopOf="@+id/content"
+        app:layout_constraintEnd_toStartOf="@id/edit_notification"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/ic_baseline_edit_24" />
+
+    <TextView
+        android:id="@+id/post_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/edit_notification_marginStart"
+        android:paddingStart="@dimen/edit_notification_paddingStart"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/content"
+        app:layout_constraintEnd_toStartOf="@+id/cancel_editing"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_notification" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/edit_barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="image_edit, edit_notification, cancel_editing, post_text"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
