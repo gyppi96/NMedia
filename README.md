@@ -28,3 +28,6 @@ Material design
 
 ## домашка 3.2
 Переходы Intents
+
+## домашка 3.3 - 3.4
+Добавление json и Fragment
