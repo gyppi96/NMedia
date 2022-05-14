@@ -1,0 +1,22 @@
+
+{
+  "data": [
+    {
+      "id" : 1,
+      "author" : "Нетология. Университет интернет-профессий будущег",
+      "content" : "Нe бежать быстрее",
+      "published" : "14 мая в 19:37",
+      "likesCount" : 1,
+      "sharesCount" : 2,
+      "video" : "https://www.youtube.com/watch?v=WhWc3b3KhnY"
+    },{
+      "id" : 2,
+      "author" : "Нетология. Университет интернет-профессий будущег",
+      "content" : "Тест",
+      "published" : "14 мая в 19:00",
+      "likesCount" : 1,
+      "sharesCount" : 20,
+      "video" : "https://www.youtube.com/watch?v=WhWc3b3KhnY"
+    }
+  ]
+}
