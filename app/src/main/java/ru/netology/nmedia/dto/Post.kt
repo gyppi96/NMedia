@@ -4,14 +4,14 @@ import java.math.RoundingMode
 import java.text.DecimalFormat
 
 data class Post(
-    val id: Long = 0L,
-    val content: String = "",
-    val published: String = "",
-    val author: String = "",
+    val id: Long,
+    val author: String,
+    val content: String,
+    val published: String,
+    val likesCount: Int = 0,
     val likedByMe: Boolean = false,
-    val likes: Long = 16123L,
-    val shares: Long = 1598L,
-    val views: Long = 1135000L
+    val share: Boolean = false,
+    val sharesCount: Int = 0
 )
 
 // функция рассчета количества и изменения порядка
